@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,15 +36,31 @@ public class Main {
                 numsEven.add(nums.get(i));
             }
         }
+        Collections.sort(numsEven);
         System.out.println(numsEven);
     }
 
     public static void task3 () {
         System.out.println("\nTask 3");
+        List<String> words = new ArrayList<>(List.of("word", "word1", "word3", "word", "word2"));
+        HashSet<String> wordsUnique = new HashSet<>(words);
+        System.out.println(wordsUnique);
     }
 
     public static void task4 () {
         System.out.println("\nTask 4");
+        Map<String, Integer> map =new HashMap<>();
+        List<String> words = new ArrayList<>(List.of("word", "word1", "word3", "word", "word2"));
+        for (String word: words) {
+            if (map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
+            } else {
+                map.put(word, 1);
+            }
+        }
+        for (String key : map.keySet()) {
+            System.out.println("The word " + key + " is repeated " + map.get(key) + " times");
+        }
     }
 
 }
